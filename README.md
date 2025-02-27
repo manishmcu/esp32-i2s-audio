@@ -5,10 +5,6 @@
 - Unzip and place `esp32fs.jar` inside:  
 C:\Users\manis\Documents\Arduino\tools\ESP32FS\tool\esp32fs.jar
 
-markdown
-Copy
-Edit
-
 ### **2. ESP32 I2S Connection**  
 If your DAC module has only L, G, and B input pins, use the following connections:  
 
@@ -30,9 +26,6 @@ If your DAC module has only L, G, and B input pins, use the following connection
 ### **4. Project Folder Structure**  
 /Your_Project_Folder │── /data <-- SPIFFS file storage │ ├── music.wav <-- 16-bit PCM, Mono, ≤ 44.1kHz │── Your_Project.ino <-- Arduino code file
 
-markdown
-Copy
-Edit
 
 ### **5. Important Notes**  
 🚨 **Do NOT connect GPIO22 (Audio Pin) while uploading the code.**  
