@@ -25,6 +25,7 @@ If your DAC module has only L, G, and B input pins, use the following connection
 
 ### **4. Project Folder Structure**  
 /Your_Project_Folder 
+
 │── /data <-- SPIFFS file storage 
 
 │ ├── music.wav <-- 16-bit PCM, Mono, ≤ 44.1kHz 
