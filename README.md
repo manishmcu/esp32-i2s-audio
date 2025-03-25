@@ -1,50 +1,29 @@
-# ESP I2S Audio Setup  
+Robots need to be in Same WiFi
 
-### **1. Install ESP32FS Plugin**  
-- Download ESP32FS: [GitHub Link](https://github.com/me-no-dev/arduino-esp32fs-plugin/releases)  
-- Unzip and place `esp32fs.jar` inside:  
-C:\Users\manis\Documents\Arduino\tools\ESP32FS\tool\esp32fs.jar
+Suppose: **Robot1,2,3...** are available for **Ring Device 1,2,3...**
 
-### **2. ESP32 I2S Connection**  
-If your DAC module has only L, G, and B input pins, use the following connections:  
+Each Ring Device will always fetch all ROBOT's data
 
-| DAC Module Pin | ESP32 Pin  |
-|---------------|-----------|
-| L (Data In)   | GPIO 22 (DOUT) |
-| G (Ground)    | GND       |
-| Power+        | 3.3V or 5V |
-| B (Mute)      | Pull HIGH (if needed) |
+***Data1:*** {"Robot1\_SN": 90821938UGX
 
-### **3. Create a Voice Audio File**  
-- Generate text-to-speech audio: [TTSMP3](https://ttsmp3.com/)  
-- Convert to WAV format: [Audio Trimmer](https://audiotrimmer.com/online-wav-converter/)  
-- Upload your file  
-- Choose **44.1kHz, 16-bit PCM, Mono**  
-- Convert and download  
-- Rename file to **music.wav**  
+"Arrive\_Status": arrived
 
-### **4. Project Folder Structure**  
-/Your_Project_Folder 
+"Point\_ID": Room01}
 
-│── /data <-- SPIFFS file storage 
+***Data2:*** {"Robot2\_SN": 90821938UGX
 
-│ ├── music.wav <-- 16-bit PCM, Mono, ≤ 44.1kHz 
+"Arrive\_Status": moving
 
-│── Your_Project.ino <-- Arduino code file
+"Point\_ID": Charging}
 
 
-### **5. Important Notes**  
-🚨 **Do NOT connect GPIO22 (Audio Pin) while uploading the code.**  
+When any **Robot** is arrived at Room01 (ex: **Robot1**)
 
-### **6. Upload Steps**  
-✅ **1️⃣ Upload Your Code (Main Sketch)**  
-- Click the **Upload (Arrow)** button in the Arduino IDE.  
-- This uploads the ESP32 program to flash memory.  
+Ring\_Device01 already fetched data that **Robot1** has arrived to **Room01**
 
-✅ **2️⃣ Upload Audio File to SPIFFS**  
-- Go to **Tools > ESP32 Sketch Data Upload**  
-- This uploads `music.wav` to the ESP32’s SPIFFS storage.  
+Bell of **Room01** ring till **Robot1** is near
 
-✅ **3️⃣ Reset and Play**  
-- Press the **ESP32 Reset** button after both uploads are complete.  
-- Open **Serial Monitor (115200 baud)** to check if playback starts.  
+If **Robot1** move to different place **Bell** will stop:
+
+
+![](imgs/Aspose.Words.5d80114b-aad5-4ab9-b0f8-ed38f002f485.001.png)

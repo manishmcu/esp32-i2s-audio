@@ -1,0 +1,42 @@
+* Download ESP32FS from >> https://github.com/me-no-dev/arduino-esp32fs-plugin/releases
+
+* Use Arduino IDE version 1.8.19 or lower to upload sketch
+
+* Unzip and put esp32fs.jar inside the below directory>> C:\Users\manis\Documents\Arduino\tools\ESP32FS\tool\esp32fs.jar
+
+* For ESP32 I2S Connection:
+
+MAX98357A	ESP32
+Vin		3.3V or 5V	
+GND		GND	
+LRC (LRCLK)	GPIO 26	
+BCLK (Bit Clk)	GPIO 25	
+DIN (Data In)	GPIO 22	
+SD (Shutdown)	(Not used)
+
+* Create Voice Audio file >> https://ttsmp3.com/  >> download
+
+* Convert to WAV >> https://audiotrimmer.com/online-wav-converter/
+
+Upload the WAV file.
+Choose 44.1kHz, 16-bit PCM, Mono.
+Convert and download.
+>> Download and rename as music.wav
+
+/Your_Project_Folder
+│── /data               <-- This folder is used for SPIFFS file storage
+│   ├── music.wav       <-- Your audio file (16-bit PCM, Mono, ≤ 44.1kHz)
+│── Your_Project.ino    <-- Your Arduino code file
+
+* Don't Connect GPIO22(Audio Pin) during uploading the code
+
+1️⃣ Upload Your Code (Main Sketch)
+Click the Upload (Arrow) button in the Arduino IDE.
+This uploads your main ESP32 program to flash memory.
+2️⃣ Upload Audio File to SPIFFS
+Go to: Tools > ESP32 Sketch Data Upload
+This uploads the music.wav file from the data folder to the ESP32’s SPIFFS storage.
+3️⃣ Reset and Play
+Press the ESP32 Reset button after both uploads are complete.
+Open Serial Monitor (115200 baud) to check if playback starts.
+
