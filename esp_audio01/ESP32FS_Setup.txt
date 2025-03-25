@@ -9,8 +9,8 @@
 MAX98357A	ESP32
 Vin		3.3V or 5V	
 GND		GND	
-LRC (LRCLK)	GPIO 25	(check_code)
-BCLK (Bit Clk)	GPIO 26	(check_code)
+LRC (LRCLK)	GPIO 26	(check_code)
+BCLK (Bit Clk)	GPIO 25	(check_code)
 DIN (Data In)	GPIO 22	
 SD (Shutdown)	(Not used)
 
